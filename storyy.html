@@ -7,16 +7,22 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    
     <script>
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#f9bc06",
-                        // Using a very dark, near-black for the background
-                        "background-light": "#f8f8f5",
+                        "primary": "#f9bc06", // Gold/Yellow accent
                         "background-dark": "#121212", 
+                        "background-light": "#f8f8f5", // Near-white
+                        "card-dark": "#1e1e1e", // Slightly lighter for dark mode cards
+                        "card-light": "#ffffff", // Pure white for light mode cards
+                        "text-dark": "#e0e0e0", // Light text for dark mode
+                        "text-light": "#333333", // Dark text for light mode
+                        "subtle-dark": "#a0a0a0", // Subtle text for dark mode
+                        "subtle-light": "#666666", // Subtle text for light mode
                     },
                     fontFamily: {
                         "display": ["Noto Serif", "serif"],
@@ -28,11 +34,50 @@
                         "xl": "0.75rem",
                         "full": "9999px"
                     },
+                    keyframes: {
+                        pulseBorder: {
+                            '0%, 100%': { transform: 'scale(1)', opacity: '1' },
+                            '50%': { transform: 'scale(1.1)', opacity: '0.7' },
+                        }
+                    },
+                    animation: {
+                        pulseBorder: 'pulseBorder 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
                 },
             },
         }
+        
+        // Theme Toggle Script
+        function toggleTheme() {
+            const htmlElement = document.documentElement;
+            const isDarkMode = htmlElement.classList.contains('dark');
+            
+            if (isDarkMode) {
+                htmlElement.classList.remove('dark');
+                htmlElement.classList.add('light');
+                localStorage.setItem('theme', 'light');
+            } else {
+                htmlElement.classList.remove('light');
+                htmlElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Apply theme on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                document.documentElement.classList.remove('dark');
+                document.documentElement.classList.add('light');
+            } else if (savedTheme === 'dark') {
+                document.documentElement.classList.remove('light');
+                document.documentElement.classList.add('dark');
+            }
+        });
     </script>
-    <style>
+    
+    <style type="text/tailwindcss">
+        /* Base styles for the icons */
         .material-symbols-outlined {
             font-variation-settings:
             'FILL' 0,
@@ -40,36 +85,75 @@
             'GRAD' 0,
             'opsz' 24
         }
+
+        /* Dynamic Body Background & Text Colors */
+        .dark body { @apply bg-background-dark text-text-dark; }
+        .light body { @apply bg-background-light text-text-light; }
+
+        .dark .header-bg { @apply bg-background-dark/80; }
+        .light .header-bg { @apply bg-background-light/80; }
+
+        .dark .text-heading { @apply text-white; }
+        .light .text-heading { @apply text-text-light; }
+
+        .dark .text-subtle { @apply text-subtle-dark; }
+        .light .text-subtle { @apply text-subtle-light; }
+
+        .dark .card-bg { @apply bg-card-dark; }
+        .light .card-bg { @apply bg-card-light; }
+        
+        .dark .border-theme { @apply border-white/10; }
+        .light .border-theme { @apply border-gray-200; }
+
+        /* Animation for pulse effect */
+        @keyframes pulseBorder {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.7;
+            }
+        }
+        .animate-pulse-border::before {
+            animation: pulseBorder 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
     </style>
 </head>
-<body class="bg-background-dark font-sans text-stone-300">
+
+<body class="font-sans transition-colors duration-300">
     <div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
         
-        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-white/10 px-4 sm:px-10 md:px-20 lg:px-40 py-3 sticky top-0 z-50 bg-background-dark/80 backdrop-blur-sm">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-theme px-4 sm:px-10 md:px-20 lg:px-40 py-3 sticky top-0 z-50 backdrop-blur-sm transition-colors header-bg">
             <div class="flex items-center gap-8">
-                <div class="flex items-center gap-4 text-white">
+                <div class="flex items-center gap-4 text-heading">
                     <div class="size-6 text-primary">
                         <svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
                             <path d="M13.8261 30.5736C16.7203 29.8826 20.2244 29.4783 24 29.4783C27.7756 29.4783 31.2797 29.8826 34.1739 30.5736C36.9144 31.2278 39.9967 32.7669 41.3563 33.8352L24.8486 7.36089C24.4571 6.73303 23.5429 6.73303 23.1514 7.36089L6.64374 33.8352C8.00331 32.7669 11.0856 31.2278 13.8261 30.5736Z"></path>
                             <path clip-rule="evenodd" d="M39.998 35.764C39.9944 35.7463 39.9875 35.7155 39.9748 35.6706C39.9436 35.5601 39.8949 35.4259 39.8346 35.2825C39.8168 35.2403 39.7989 35.1993 39.7813 35.1602C38.5103 34.2887 35.9788 33.0607 33.7095 32.5189C30.9875 31.8691 27.6413 31.4783 24 31.4783C20.3587 31.4783 17.0125 31.8691 14.2905 32.5189C12.0012 33.0654 9.44505 34.3104 8.18538 35.1832C8.17384 35.2075 8.16216 35.233 8.15052 35.2592C8.09919 35.3751 8.05721 35.4886 8.02977 35.589C8.00356 35.6848 8.00039 35.7333 8.00004 35.7388C8.00004 35.739 8 35.7393 8.00004 35.7388C8.00004 35.7641 8.0104 36.0767 8.68485 36.6314C9.34546 37.1746 10.4222 37.7531 11.9291 38.2772C14.9242 39.319 19.1919 40 24 40C28.8081 40 33.0758 39.319 36.0709 38.2772C37.5778 37.7531 38.6545 37.1746 39.3151 36.6314C39.9006 36.1499 39.9857 35.8511 39.998 35.764ZM4.95178 32.7688L21.4543 6.30267C22.6288 4.4191 25.3712 4.41909 26.5457 6.30267L43.0534 32.777C43.0709 32.8052 43.0878 32.8338 43.104 32.8629L41.3563 33.8352C43.104 32.8629 43.1038 32.8626 43.104 32.8629L43.1051 32.865L43.1065 32.8675L43.1101 32.8739L43.1199 32.8918C43.1276 32.906 43.1377 32.9246 43.1497 32.9473C43.1738 32.9925 43.2062 33.0545 43.244 33.1299C43.319 33.2792 43.4196 33.489 43.5217 33.7317C43.6901 34.1321 44 34.9311 44 35.7391C44 37.4427 43.003 38.7775 41.8558 39.7209C40.6947 40.6757 39.1354 41.4464 37.385 42.0552C33.8654 43.2794 29.133 44 24 44C18.867 44 14.1346 43.2794 10.615 42.0552C8.86463 41.4464 7.30529 40.6757 6.14419 39.7209C4.99695 38.7775 3.99999 37.4427 3.99999 35.7391C3.99999 34.8725 4.29264 34.0922 4.49321 33.6393C4.60375 33.3898 4.71348 33.1804 4.79687 33.0311C4.83898 32.9556 4.87547 32.8935 4.9035 32.8471C4.91754 32.8238 4.92954 32.8043 4.93916 32.7889L4.94662 32.777L4.95178 32.7688ZM35.9868 29.004L24 9.77997L12.0131 29.004C12.4661 28.8609 12.9179 28.7342 13.3617 28.6282C16.4281 27.8961 20.0901 27.4783 24 27.4783C27.9099 27.4783 31.5719 27.8961 34.6383 28.6282C35.082 28.7342 35.5339 28.8609 35.9868 29.004Z" fill-rule="evenodd"></path>
                         </svg>
                     </div>
-                    <h2 class="text-white text-xl font-bold font-display leading-tight tracking-[-0.015em]">Shilajeet</h2>
+                    <h2 class="text-xl font-bold font-display leading-tight tracking-[-0.015em] text-heading">Shilajeet</h2>
                 </div>
             </div>
             <div class="hidden md:flex flex-1 justify-center gap-8">
                 <div class="flex items-center gap-9">
-                    <a class="text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="index.html">Home</a>
+                    <a class="text-heading text-sm font-medium leading-normal hover:text-primary transition-colors" href="index.html">Home</a>
                     <a class="text-primary text-sm font-medium leading-normal" href="#">Our Story</a>
-                    <a class="text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="shop.html">Shop</a>
-                    <a class="text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="conatct.html">Contact</a>
+                    <a class="text-heading text-sm font-medium leading-normal hover:text-primary transition-colors" href="shop.html">Shop</a>
+                    <a class="text-heading text-sm font-medium leading-normal hover:text-primary transition-colors" href="conatct.html">Contact</a>
                 </div>
             </div>
             <div class="flex items-center gap-2">
-                <button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-white/10 text-white hover:bg-white/20 transition-colors gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+                <button aria-label="Toggle Dark/Light Mode" onclick="toggleTheme()" class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 dark:bg-white/10 dark:text-white light:bg-gray-200 light:text-gray-800 hover:dark:bg-white/20 hover:light:bg-gray-300 transition-colors gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+                    <span class="material-symbols-outlined dark:inline light:hidden">light_mode</span>
+                    <span class="material-symbols-outlined light:inline dark:hidden">dark_mode</span>
+                </button>
+                <button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 dark:bg-white/10 dark:text-white light:bg-gray-200 light:text-gray-800 hover:dark:bg-white/20 hover:light:bg-gray-300 transition-colors gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
                     <span class="material-symbols-outlined">person</span>
                 </button>
-                <button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-white/10 text-white hover:bg-white/20 transition-colors gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+                <button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 dark:bg-white/10 dark:text-white light:bg-gray-200 light:text-gray-800 hover:dark:bg-white/20 hover:light:bg-gray-300 transition-colors gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
                     <span class="material-symbols-outlined">shopping_bag</span>
                 </button>
             </div>
@@ -80,67 +164,69 @@
                 <div class="layout-content-container flex flex-col w-full max-w-6xl flex-1 py-12 md:py-20">
                     
                     <div class="text-center">
-                        <h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight">From the Peaks of the Himalayas, <br class="hidden md:block"/> to the Palm of Your Hand</h1>
-                        <p class="mt-6 max-w-3xl mx-auto text-lg text-stone-400 leading-relaxed">Our journey is one of reverence for nature, dedication to purity, and a deep-rooted belief in the ancient wisdom of the mountains.</p>
+                        <h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-heading leading-tight">From the Peaks of the Himalayas, <br class="hidden md:block"/> to the Palm of Your Hand</h1>
+                        <p class="mt-6 max-w-3xl mx-auto text-lg text-subtle leading-relaxed">Our journey is one of reverence for nature, dedication to purity, and a deep-rooted belief in the ancient wisdom of the mountains.</p>
                     </div>
 
-                    <div class="mt-16 relative aspect-[16/9] w-full rounded-xl overflow-hidden shadow-lg">
-                        <img alt="Sunlight streaming over a majestic Himalayan mountain range at dawn." class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9u5lw2x6t3noYwJvODqZrTmdW3s0Kdn5Q9s29vILQ0F04Q5RBeG-DMfFOZHijYwRU6PB3bLZlPKTSgs0tm_w_UrkMSUOjGsfLoYqWZhSpONp_QRWtP5sE_oeSvXE7_V9fa9F5K7PK-2yh-65Uy_gE_M6uKpH2RGLnytkaWT4OfwCtvoFbRMy8UAO2LoN-MJyFyjT23cI6jM5rKdHE83MTQ8svtXCqEVAO0gCgoDdI2nhVfyrNGS1FCQoaWaqVItrfnUyMtOQ97wg"/>
-                        <div class="absolute inset-0 bg-black/40"></div>
+                    <div class="mt-16 relative aspect-[16/9] w-full rounded-xl overflow-hidden shadow-xl dark:shadow-2xl dark:shadow-primary/10 transition-shadow">
+                        <img alt="Sunlight streaming over a majestic Himalayan mountain range at dawn." class="w-full h-full object-cover" src="Gemini_Generated_Image_4r36fl4r36fl4r36.png"/>
+                        <div class="absolute inset-0 dark:bg-black/40 light:bg-black/10 transition-colors"></div>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center mt-20">
                         <div class="flex flex-col gap-6">
-                            <h2 class="font-display text-3xl sm:text-4xl font-bold text-white">The Origin of a Legend</h2>
-                            <p class="text-stone-300 leading-relaxed">For centuries, **Shilajeet**, known as the **"conqueror of mountains,"** has been a cornerstone of Ayurvedic medicine. This precious resin, formed over millennia from the slow decomposition of plants, seeps from the cracks of rocks in the highest reaches of the Himalayas. Our founders, inspired by its legendary rejuvenating properties, embarked on a mission to bring this pure, potent substance to the modern world, without compromise.</p>
-                            <div class="border-l-2 border-primary pl-4">
-                                <p class="text-stone-300 italic leading-relaxed">"We believe that true wellness is found in nature's purest offerings. Our promise is to honor the source and deliver its power to you."</p>
-                                <p class="text-white font-bold mt-2">- The Founders</p>
+                            <h2 class="font-display text-3xl sm:text-4xl font-bold text-heading">The Origin of a Legend ⛰️</h2>
+                            <p class="dark:text-text-dark light:text-subtle leading-relaxed">For centuries, **Shilajeet**, known as the **"conqueror of mountains,"** has been a cornerstone of Ayurvedic medicine. This precious resin, formed over millennia from the slow decomposition of plants, seeps from the cracks of rocks in the highest reaches of the Himalayas. Our founders, inspired by its legendary rejuvenating properties, embarked on a mission to bring this pure, potent substance to the modern world, without compromise.</p>
+                            <div class="border-l-2 border-primary pl-4 dark:bg-card-dark/50 light:bg-gray-100/50 p-4 rounded-lg transition-colors">
+                                <p class="text-subtle italic leading-relaxed">"We believe that true wellness is found in nature's purest offerings. Our promise is to honor the source and deliver its power to you."</p>
+                                <p class="text-heading font-bold mt-2">- The Founders</p>
                             </div>
                         </div>
-                        <div class="aspect-square bg-stone-900 rounded-xl overflow-hidden">
-                            <img alt="A close-up of dark, viscous Shilajeet resin on a traditional wooden spoon." class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrJdedOpCH6k-zZUvJodXjxaykdjI3r7-bC1ISpvb3DB8OusVw9l1pQIoQIhLMX7QUAVMlWVmx4ZduRmrbWwrm-xpUFI4ZvVZDLBA7Z4CNplFna6MX-M5v9SvjjzcD_z6xoJRtgdg6cxJoTy6xYnGRRaQ2W-mawL-IK58IMln8swt3oAJ0Cr-jM3ddvjizg8mMsUgnHYMpl9BRHJnA_RMF1Fl1Ysv80JVIaCBxh3OZqumGd8HLu0uklrdb1MMBpuBkDujYEqLyj4o"/>
+                        <div class="aspect-square card-bg rounded-xl overflow-hidden shadow-lg dark:shadow-primary/10 transition-colors">
+                            <img alt="A close-up of dark, viscous Shilajeet resin on a traditional wooden spoon." class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="Gemini_Generated_Image_6v3j0y6v3j0y6v3j.png"/>
                         </div>
                     </div>
 
-                    <div class="mt-20 py-20 border-y border-white/10">
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+                    <div class="mt-20 py-20 border-y border-theme dark:bg-background-dark/50 light:bg-gray-100/50 transition-colors rounded-xl p-8 shadow-inner dark:shadow-primary/5">
+                        <h2 class="text-center font-display text-4xl font-bold text-heading mb-12">Our Pillars of Purity 🌟</h2>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                             
-                            <div class="flex flex-col items-center gap-4">
-                                <div class="flex items-center justify-center size-16 bg-primary/10 rounded-full text-primary">
+                            <div class="flex flex-col items-center gap-4 card-bg p-8 rounded-xl border border-primary/20 shadow-lg hover:shadow-primary/20 transition-shadow">
+                                <div class="relative flex items-center justify-center size-20 bg-primary/10 rounded-full text-primary before:content-[''] before:absolute before:inset-2 before:border-2 before:border-primary/50 before:rounded-full animate-pulse-border">
                                     <span class="material-symbols-outlined text-4xl">eco</span>
                                 </div>
-                                <h3 class="text-2xl font-display font-bold text-white mt-2">Ethical Sourcing</h3>
-                                <p class="text-stone-400 leading-relaxed">We partner with local communities, employing sustainable, traditional methods to harvest our Shilajeet, ensuring the preservation of the delicate ecosystem.</p>
+                                <h3 class="text-2xl font-display font-bold text-heading mt-2">Ethical Sourcing</h3>
+                                <p class="text-subtle leading-relaxed text-center">We partner with local communities, employing sustainable, traditional methods to harvest our Shilajeet, ensuring the preservation of the delicate ecosystem.</p>
                             </div>
 
-                            <div class="flex flex-col items-center gap-4">
-                                <div class="flex items-center justify-center size-16 bg-primary/10 rounded-full text-primary">
+                            <div class="flex flex-col items-center gap-4 card-bg p-8 rounded-xl border border-primary/20 shadow-lg hover:shadow-primary/20 transition-shadow">
+                                <div class="relative flex items-center justify-center size-20 bg-primary/10 rounded-full text-primary before:content-[''] before:absolute before:inset-2 before:border-2 before:border-primary/50 before:rounded-full animate-pulse-border delay-100">
                                     <span class="material-symbols-outlined text-4xl">science</span>
                                 </div>
-                                <h3 class="text-2xl font-display font-bold text-white mt-2">Unwavering Purity</h3>
-                                <p class="text-stone-400 leading-relaxed">Every batch undergoes a meticulous purification process and is third-party lab tested to guarantee it is free from heavy metals and contaminants.</p>
+                                <h3 class="text-2xl font-display font-bold text-heading mt-2">Unwavering Purity</h3>
+                                <p class="text-subtle leading-relaxed text-center">Every batch undergoes a meticulous purification process and is third-party lab tested to guarantee it is free from heavy metals and contaminants.</p>
                             </div>
 
-                            <div class="flex flex-col items-center gap-4">
-                                <div class="flex items-center justify-center size-16 bg-primary/10 rounded-full text-primary">
+                            <div class="flex flex-col items-center gap-4 card-bg p-8 rounded-xl border border-primary/20 shadow-lg hover:shadow-primary/20 transition-shadow">
+                                <div class="relative flex items-center justify-center size-20 bg-primary/10 rounded-full text-primary before:content-[''] before:absolute before:inset-2 before:border-2 before:border-primary/50 before:rounded-full animate-pulse-border delay-200">
                                     <span class="material-symbols-outlined text-4xl">local_shipping</span>
                                 </div>
-                                <h3 class="text-2xl font-display font-bold text-white mt-2">Direct to You</h3>
-                                <p class="text-stone-400 leading-relaxed">By overseeing every step, from the mountain to your home, we ensure you receive nothing but the most authentic, potent Shilajeet available.</p>
+                                <h3 class="text-2xl font-display font-bold text-heading mt-2">Direct to You</h3>
+                                <p class="text-subtle leading-relaxed text-center">By overseeing every step, from the mountain to your home, we ensure you receive nothing but the most authentic, potent Shilajeet available.</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center mt-20">
-                        <div class="aspect-square bg-stone-900 rounded-xl overflow-hidden order-last md:order-first">
-                            <img alt="A person dissolving Shilajeet into a clear glass of warm water, showing its rich color." class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7ISic-WdJCgC3ZX4gpZsFT41gDbRj9pj_7IlxnUA6Dbj7dDkN3Vx9KM-0trCXJRhvEuzrd5SqGH_SVRfo_t-bN3EGcp7X80fcMXZnPkSqhxfNKbp_Z9Z2KwwWCEwxtpCY3Eecpg909LHVzKxU54romTf2Sb7yuA73TbciVp5hS4cA1adtOQdU30_nYfNQ4B5O4vZUnNfKoclv53M5StO-UJKna7A_KbJG0kbrsINpj2O46fEwuBJAFN3BNxUk3bfkWDvfYC8oxH0"/>
+                        <div class="aspect-square card-bg rounded-xl overflow-hidden order-last md:order-first shadow-lg dark:shadow-primary/10 transition-colors">
+                            <img alt="A person dissolving Shilajeet into a clear glass of warm water, showing its rich color." class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="Gemini_Generated_Image_id9htuid9htuid9h.png"/>
                         </div>
                         <div class="flex flex-col gap-6">
-                            <h2 class="font-display text-3xl sm:text-4xl font-bold text-white">A Commitment to Wellness</h2>
-                            <p class="text-stone-300 leading-relaxed">Our story is not just about a product; it's about a philosophy. It’s about reconnecting with ancient traditions and harnessing the earth's power to enhance our modern lives. We are driven by the transformative stories of our customers, who experience renewed energy, mental clarity, and profound well-being.</p>
-                            <p class="text-stone-300 leading-relaxed">Join us on this journey to vitality. Experience the authentic power of the Himalayas, captured in every jar.</p>
-                            <a class="inline-block mt-4 bg-primary text-background-dark font-bold py-3 px-8 rounded-lg hover:bg-yellow-400 transition-colors text-lg w-fit" href="#">Explore Our Products</a>
+                            <h2 class="font-display text-3xl sm:text-4xl font-bold text-heading">A Commitment to Wellness 🤝</h2>
+                            <p class="dark:text-text-dark light:text-subtle leading-relaxed">Our story is not just about a product; it's about a **philosophy**. It’s about reconnecting with ancient traditions and harnessing the earth's power to enhance our modern lives. We are driven by the transformative stories of our customers, who experience renewed energy, mental clarity, and profound well-being.</p>
+                            <p class="dark:text-text-dark light:text-subtle leading-relaxed">Join us on this journey to vitality. Experience the authentic power of the Himalayas, captured in every jar.</p>
+                            <a class="inline-block mt-4 bg-primary dark:text-background-dark light:text-text-light font-bold py-3 px-8 rounded-lg hover:bg-yellow-400 dark:hover:text-background-dark light:hover:text-text-light transition-colors text-lg w-fit shadow-md hover:shadow-lg hover:scale-[1.02] transform duration-300" href="#">Explore Our Products</a>
                         </div>
                     </div>
                 </div>
