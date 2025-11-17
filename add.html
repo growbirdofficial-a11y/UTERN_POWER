@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Shilajeet - Pure Himalayan Shilajeet Resin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f9bc06",
+                        "background-light": "#f8f8f5",
+                        "background-dark": "#121212",
+                    },
+                    fontFamily: {
+                        "display": ["Noto Serif", "serif"],
+                        "sans": ["Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-sans text-stone-300 dark:text-stone-300">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-white/10 px-4 sm:px-10 md:px-20 lg:px-40 py-3 sticky top-0 z-50 bg-background-dark/80 backdrop-blur-sm">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-white">
+<div class="size-6 text-primary">
+<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.8261 30.5736C16.7203 29.8826 20.2244 29.4783 24 29.4783C27.7756 29.4783 31.2797 29.8826 34.1739 30.5736C36.9144 31.2278 39.9967 32.7669 41.3563 33.8352L24.8486 7.36089C24.4571 6.73303 23.5429 6.73303 23.1514 7.36089L6.64374 33.8352C8.00331 32.7669 11.0856 31.2278 13.8261 30.5736Z"></path>
+<path clip-rule="evenodd" d="M39.998 35.764C39.9944 35.7463 39.9875 35.7155 39.9748 35.6706C39.9436 35.5601 39.8949 35.4259 39.8346 35.2825C39.8168 35.2403 39.7989 35.1993 39.7813 35.1602C38.5103 34.2887 35.9788 33.0607 33.7095 32.5189C30.9875 31.8691 27.6413 31.4783 24 31.4783C20.3587 31.4783 17.0125 31.8691 14.2905 32.5189C12.0012 33.0654 9.44505 34.3104 8.18538 35.1832C8.17384 35.2075 8.16216 35.233 8.15052 35.2592C8.09919 35.3751 8.05721 35.4886 8.02977 35.589C8.00356 35.6848 8.00039 35.7333 8.00004 35.7388C8.00004 35.739 8 35.7393 8.00004 35.7388C8.00004 35.7641 8.0104 36.0767 8.68485 36.6314C9.34546 37.1746 10.4222 37.7531 11.9291 38.2772C14.9242 39.319 19.1919 40 24 40C28.8081 40 33.0758 39.319 36.0709 38.2772C37.5778 37.7531 38.6545 37.1746 39.3151 36.6314C39.9006 36.1499 39.9857 35.8511 39.998 35.764ZM4.95178 32.7688L21.4543 6.30267C22.6288 4.4191 25.3712 4.41909 26.5457 6.30267L43.0534 32.777C43.0709 32.8052 43.0878 32.8338 43.104 32.8629L41.3563 33.8352C43.104 32.8629 43.1038 32.8626 43.104 32.8629L43.1051 32.865L43.1065 32.8675L43.1101 32.8739L43.1199 32.8918C43.1276 32.906 43.1377 32.9246 43.1497 32.9473C43.1738 32.9925 43.2062 33.0545 43.244 33.1299C43.319 33.2792 43.4196 33.489 43.5217 33.7317C43.6901 34.1321 44 34.9311 44 35.7391C44 37.4427 43.003 38.7775 41.8558 39.7209C40.6947 40.6757 39.1354 41.4464 37.385 42.0552C33.8654 43.2794 29.133 44 24 44C18.867 44 14.1346 43.2794 10.615 42.0552C8.86463 41.4464 7.30529 40.6757 6.14419 39.7209C4.99695 38.7775 3.99999 37.4427 3.99999 35.7391C3.99999 34.8725 4.29264 34.0922 4.49321 33.6393C4.60375 33.3898 4.71348 33.1804 4.79687 33.0311C4.83898 32.9556 4.87547 32.8935 4.9035 32.8471C4.91754 32.8238 4.92954 32.8043 4.93916 32.7889L4.94662 32.777L4.95178 32.7688ZM35.9868 29.004L24 9.77997L12.0131 29.004C12.4661 28.8609 12.9179 28.7342 13.3617 28.6282C16.4281 27.8961 20.0901 27.4783 24 27.4783C27.9099 27.4783 31.5719 27.8961 34.6383 28.6282C35.082 28.7342 35.5339 28.8609 35.9868 29.004Z" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-white text-xl font-bold font-display leading-tight tracking-[-0.015em]">Shilajeet</h2>
+</div>
+</div>
+<div class="hidden md:flex flex-1 justify-center gap-8">
+<div class="flex items-center gap-9">
+<a class="text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="index.html">Home</a>
+<a class="text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="shop.html">Shop</a>
+<a class="text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="storyy.html">About</a>
+<a class="text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="conatct.html">Contact</a>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-white/10 text-white hover:bg-white/20 transition-colors gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+<span class="material-symbols-outlined">person</span>
+</button>
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-white/10 text-white hover:bg-white/20 transition-colors gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+<span class="material-symbols-outlined">shopping_bag</span>
+</button>
+</div>
+</header>
+<main class="layout-container flex h-full grow flex-col">
+<div class="px-4 sm:px-10 md:px-20 lg:px-40 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col w-full max-w-6xl flex-1">
+<!-- Breadcrumbs -->
+<div class="flex flex-wrap gap-2 p-4">
+<a class="text-stone-400 dark:text-stone-400 text-sm font-medium leading-normal hover:text-primary" href="#">Home</a>
+<span class="text-stone-400 dark:text-stone-400 text-sm font-medium leading-normal">/</span>
+<a class="text-stone-400 dark:text-stone-400 text-sm font-medium leading-normal hover:text-primary" href="#">Shop</a>
+<span class="text-stone-400 dark:text-stone-400 text-sm font-medium leading-normal">/</span>
+<span class="text-white text-sm font-medium leading-normal">Pure Himalayan Shilajeet Resin</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-8">
+<!-- Left Column: Image Gallery -->
+<div class="flex flex-col gap-4">
+<!-- Main Image -->
+<div class="aspect-square w-full bg-stone-900 rounded-xl overflow-hidden">
+<img alt="A jar of Shilajeet resin with a small spoon resting on top." class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDph-YE4TEpHF5j_p3SK5a5DyAE4uvXI8KWMJdArkQbNdwHlAwb9wuCahLE6N5oSgb7efaKHZ_JWYhkGqd29Ie5IFcA1OWP_wUf1NizVp4i231T21Tr2bU4J281oZarW9kcFub0JyPJp0moFdBwE6J4nM_lLh8hnP6Pb6fbbKYQ7tGvce_clOlJhQamryjrXV8pJa8w_lDNgUbQQfGiJZ9aX8hkxagwwe5JPw3pyaKPKhcnjFYj7cU4c1HUgqNiPT9PMSRqeu4lpW4"/>
+</div>
+<!-- Thumbnails -->
+<div class="grid grid-cols-4 gap-4">
+<div class="aspect-square bg-stone-900 rounded-lg overflow-hidden border-2 border-primary">
+<img class="w-full h-full object-cover cursor-pointer" data-alt="A jar of Shilajeet resin with a small spoon resting on top." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFChQQd4S8rC9KbI_b-Z9ED3BCsgPlFkE06cjjQBgQwKGDmhtlHuoIinQoLeHNbfr81589VOtjj6JWWK7Gv9u78aQAk8vxMu3-a_74GLwIqMFQgKhBm1js0xiEo4uJllzKdfsIMn-sqyN1FrLbKPdPN-Cs-LuixEwIZzUsfTYBtIP8L_Ld_GHe41Ibh6Jial5LNW_9TNw2syseacYukDtFTK3hctb6xcswEj4TEN93-n4mnQnpd1lYLHsKHskDHGfox5Q_xbyf3Lc"/>
+</div>
+<div class="aspect-square bg-stone-900 rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover cursor-pointer opacity-70 hover:opacity-100 transition-opacity" data-alt="A close-up of the dark, viscous texture of Shilajeet resin on a spoon." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrJdedOpCH6k-zZUvJodXjxaykdjI3r7-bC1ISpvb3DB8OusVw9l1pQIoQIhLMX7QUAVMlWVmx4ZduRmrbWwrm-xpUFI4ZvVZDLBA7Z4CNplFna6MX-M5v9SvjjzcD_z6xoJRtgdg6cxJoTy6xYnGRRaQ2W-mawL-IK58IMln8swt3oAJ0Cr-jM3ddvjizg8mMsUgnHYMpl9BRHJnA_RMF1Fl1Ysv80JVIaCBxh3OZqumGd8HLu0uklrdb1MMBpuBkDujYEqLyj4o"/>
+</div>
+<div class="aspect-square bg-stone-900 rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover cursor-pointer opacity-70 hover:opacity-100 transition-opacity" data-alt="The product packaging for Shilajeet resin, showing the box and jar." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9u5lw2x6t3noYwJvODqZrTmdW3s0Kdn5Q9s29vILQ0F04Q5RBeG-DMfFOZHijYwRU6PB3bLZlPKTSgs0tm_w_UrkMSUOjGsfLoYqWZhSpONp_QRWtP5sE_oeSvXE7_V9fa9F5K7PK-2yh-65Uy_gE_M6uKpH2RGLnytkaWT4OfwCtvoFbRMy8UAO2LoN-MJyFyjT23cI6jM5rKdHE83MTQ8svtXCqEVAO0gCgoDdI2nhVfyrNGS1FCQoaWaqVItrfnUyMtOQ97wg"/>
+</div>
+<div class="aspect-square bg-stone-900 rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover cursor-pointer opacity-70 hover:opacity-100 transition-opacity" data-alt="A person dissolving Shilajeet resin into a glass of warm water." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7ISic-WdJCgC3ZX4gpZsFT41gDbRj9pj_7IlxnUA6Dbj7dDkN3Vx9KM-0trCXJRhvEuzrd5SqGH_SVRfo_t-bN3EGcp7X80fcMXZnPkSqhxfNKbp_Z9Z2KwwWCEwxtpCY3Eecpg909LHVzKxU54romTf2Sb7yuA73TbciVp5hS4cA1adtOQdU30_nYfNQ4B5O4vZUnNfKoclv53M5StO-UJKna7A_KbJG0kbrsINpj2O46fEwuBJAFN3BNxUk3bfkWDvfYC8oxH0"/>
+</div>
+</div>
+</div>
+<!-- Right Column: Product Info -->
+<div class="flex flex-col gap-4 text-white">
+<h1 class="font-display text-4xl font-bold leading-tight">Pure Himalayan Shilajeet Resin</h1>
+<p class="text-stone-400 text-base font-normal leading-normal">Authentic Himalayan Resin</p>
+<div class="flex items-center gap-2">
+<div class="flex text-primary">
+<span class="material-symbols-outlined !text-xl">star</span>
+<span class="material-symbols-outlined !text-xl">star</span>
+<span class="material-symbols-outlined !text-xl">star</span>
+<span class="material-symbols-outlined !text-xl">star</span>
+<span class="material-symbols-outlined !text-xl">star_half</span>
+</div>
+<span class="text-sm text-stone-400">(128 Reviews)</span>
+</div>
+<p class="font-display text-4xl font-bold text-primary my-4">$79.99</p>
+<p class="text-stone-300 leading-relaxed">Experience the pinnacle of natural wellness with our 100% pure Himalayan Shilajeet. Sourced from the highest altitudes, our resin is rich in fulvic acid and over 84 essential minerals, offering unparalleled benefits for energy, vitality, and overall health.</p>
+<div class="flex items-center gap-4 my-6">
+<label class="text-sm font-bold" for="quantity">QUANTITY</label>
+<div class="flex items-center border border-white/20 rounded-lg">
+<button class="px-3 py-2 text-stone-400 hover:text-white">-</button>
+<input class="w-12 text-center bg-transparent border-0 text-white focus:ring-0" id="quantity" type="text" value="1"/>
+<button class="px-3 py-2 text-stone-400 hover:text-white">+</button>
+</div>
+</div>
+<button class="w-full bg-primary text-background-dark font-bold py-3 px-6 rounded-lg hover:bg-yellow-400 transition-colors text-lg">Add to Cart</button>
+<div class="flex items-center justify-center gap-6 mt-4 text-stone-400 text-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined !text-lg text-primary">verified</span>
+<span>Lab Tested</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined !text-lg text-primary">science</span>
+<span>100% Authentic</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined !text-lg text-primary">lock</span>
+<span>Secure Checkout</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Accordion for more details -->
+<div class="border-t border-white/10 mt-16 pt-10">
+<div class="space-y-4">
+<details class="group p-4 bg-white/5 rounded-lg" open="">
+<summary class="flex justify-between items-center cursor-pointer list-none">
+<h3 class="text-xl font-display font-bold text-white">Product Description</h3>
+<span class="transition-transform duration-300 transform group-open:rotate-180">
+<span class="material-symbols-outlined">expand_more</span>
+</span>
+</summary>
+<p class="text-stone-300 mt-4 leading-relaxed">Our Shilajeet is a powerful adaptogen, meticulously purified to ensure maximum potency and safety. This ancient superfood supports cognitive function, enhances physical performance, and promotes graceful aging. It's a natural source of energy that revitalizes your body and mind from the cellular level.</p>
+</details>
+<details class="group p-4 bg-white/5 rounded-lg">
+<summary class="flex justify-between items-center cursor-pointer list-none">
+<h3 class="text-xl font-display font-bold text-white">Ingredients &amp; Sourcing</h3>
+<span class="transition-transform duration-300 transform group-open:rotate-180">
+<span class="material-symbols-outlined">expand_more</span>
+</span>
+</summary>
+<p class="text-stone-300 mt-4 leading-relaxed">Contains only 100% Pure Himalayan Shilajeet Resin. Sourced above 16,000 feet from pristine regions of the Himalayas. We work with local communities to ensure sustainable and ethical harvesting practices. Each batch is third-party lab tested for heavy metals and purity.</p>
+</details>
+<details class="group p-4 bg-white/5 rounded-lg">
+<summary class="flex justify-between items-center cursor-pointer list-none">
+<h3 class="text-xl font-display font-bold text-white">How to Use</h3>
+<span class="transition-transform duration-300 transform group-open:rotate-180">
+<span class="material-symbols-outlined">expand_more</span>
+</span>
+</summary>
+<p class="text-stone-300 mt-4 leading-relaxed">Dissolve a pea-sized amount (approx. 300-500mg) in warm water, tea, or milk once or twice daily. Stir until fully dissolved and consume. For best results, take on an empty stomach in the morning.</p>
+</details>
+</div>
+</div>
+<!-- Customer Reviews Section -->
+<div class="border-t border-white/10 mt-16 pt-10">
+<h2 class="text-3xl font-display font-bold text-white text-center mb-8">Customer Reviews</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="bg-white/5 p-6 rounded-lg flex flex-col gap-3">
+<div class="flex justify-between items-center">
+<p class="font-bold text-white">Alex Johnson</p>
+<div class="flex text-primary">
+<span class="material-symbols-outlined !text-base">star</span><span class="material-symbols-outlined !text-base">star</span><span class="material-symbols-outlined !text-base">star</span><span class="material-symbols-outlined !text-base">star</span><span class="material-symbols-outlined !text-base">star</span>
+</div>
+</div>
+<p class="text-stone-300 leading-relaxed text-sm">"Absolutely life-changing. My energy levels are through the roof, and I feel more focused than ever. The quality is exceptional."</p>
+</div>
+<div class="bg-white/5 p-6 rounded-lg flex flex-col gap-3">
+<div class="flex justify-between items-center">
+<p class="font-bold text-white">Maria Garcia</p>
+<div class="flex text-primary">
+<span class="material-symbols-outlined !text-base">star</span><span class="material-symbols-outlined !text-base">star</span><span class="material-symbols-outlined !text-base">star</span><span class="material-symbols-outlined !text-base">star</span><span class="material-symbols-outlined !text-base">star_half</span>
+</div>
+</div>
+<p class="text-stone-300 leading-relaxed text-sm">"I was skeptical at first, but this is the real deal. The taste is strong, but the benefits are undeniable. Great for post-workout recovery."</p>
+</div>
+<div class="bg-white/5 p-6 rounded-lg flex flex-col gap-3">
+<div class="flex justify-between items-center">
+<p class="font-bold text-white">David Chen</p>
+<div class="flex text-primary">
+<span class="material-symbols-outlined !text-base">star</span><span class="material-symbols-outlined !text-base">star</span><span class="material-symbols-outlined !text-base">star</span><span class="material-symbols-outlined !text-base">star</span><span class="material-symbols-outlined !text-base">star</span>
+</div>
+</div>
+<p class="text-stone-300 leading-relaxed text-sm">"Excellent product and fast shipping. I've noticed a significant improvement in my mental clarity and overall well-being. Highly recommend."</p>
+</div>
+</div>
+</div>
+<!-- Related Products Section -->
+<div class="border-t border-white/10 mt-16 pt-10">
+<h2 class="text-3xl font-display font-bold text-white text-center mb-8">You Might Also Like</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-white/5 rounded-lg overflow-hidden group">
+<div class="aspect-square bg-stone-900">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Shilajeet capsules in a bottle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQE5HTOvPeBzyrhNeuGVWzQUd193mKv-BhmcPFEdlAvFZYlcBKnhN1tx5Lv1pibuow8SyvYddUWqQSALZ3Iu07T5f3u2P1ZeceJcT52T2YXE4iXXYNUdCu4w76BriIPWJFJrsPfr7ojr59b7o4hzChjg7LNmeqPWj-fIEtX5VMqPJDbwVmW5uSRGy-5Y4BRHDZ_GDjb9gStDlH7PDIKV5qhToziDSREBAjM6lTOfbotN7rXYp_2Q0Gu2XdE2biJi38-0MI07HEeBI"/>
+</div>
+<div class="p-4">
+<h3 class="font-bold text-white">Shilajeet Capsules</h3>
+<p class="text-primary font-bold mt-1">$59.99</p>
+</div>
+</div>
+<div class="bg-white/5 rounded-lg overflow-hidden group">
+<div class="aspect-square bg-stone-900">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A small bottle of Shilajeet liquid drops" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8OGdeW7c32vbXh-OPQFMqmxcixGvaik0TbzJI8l3RvO8ESECDBY5wyX6Xtln8BPwXviMEE6GdaShbIwIXNFJ8jH0jWHeGKrzKOLGbZl9mDALJ18PpELQxUV9I80B0kNs3PP08l6eqsosU9gOtClpnbhsF0Tn1hViANtBhO67pheG0qMdXVoRM6MirbsDwuHRQyLXctUb6K2Szs3HXnHFBb2zuO6MVu7rfi41z3pJZkeC5zYqQyEj4PgrxZca__ge1SyzREp178sc"/>
+</div>
+<div class="p-4">
+<h3 class="font-bold text-white">Shilajeet Liquid Drops</h3>
+<p class="text-primary font-bold mt-1">$49.99</p>
+</div>
+</div>
+<div class="bg-white/5 rounded-lg overflow-hidden group">
+<div class="aspect-square bg-stone-900">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A larger family-size jar of Shilajeet resin" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-DWlmngREA4T7UpTUT4lKedH0JaG2K1ZHg4Qn6QClic4_YJ4xSOkFMDcgooyAl_xGSjYz702hPEkGO-PUHbgyZA-8yIkBnKVL_J2i-Vnwye1VzgJ0xZRiG8VaxQzKSEEzd0ETqh3r6eepOmuvT_avsJ7pIVt350fPyPD-UqbG_WUEYdNskZwN-elWI4KA1KFu9mbLhpsUGHyXtvYGq_e00JLQ40gRSW0TN0f5YiYpt8PEAJ4Z_mapCGM4dT-z6f0Df4JxK7iMgZc"/>
+</div>
+<div class="p-4">
+<h3 class="font-bold text-white">Gold Grade Resin (50g)</h3>
+<p class="text-primary font-bold mt-1">$129.99</p>
+</div>
+</div>
+<div class="bg-white/5 rounded-lg overflow-hidden group">
+<div class="aspect-square bg-stone-900">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A sample size packet of Shilajeet resin" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnpn89zNqyWlz0OSl5IwZUT6nz6vsFw75Iq_H1bSeCmdaWULM5KAR7R7WCc6kU6I9LR38NFwPNtnEbVubq9z-02WNTovSDaGKtebuvzl_bkPeVbBbM7HTZXxjQWUsfFyUDkrujx5NahusBgAD8ZUaGgZnwB0lBKw6rtx5H5XmU51Afwn8qSaaG-IxvGU5n1k_pFfPnKdqrInCAXsDEi_KFp6p7pYBc9K5-5v4LTk-nZHTwC-FGVt05P80gCr4vo26Lk9FCtVhvYJg"/>
+</div>
+<div class="p-4">
+<h3 class="font-bold text-white">Shilajeet Travel Pack</h3>
+<p class="text-primary font-bold mt-1">$24.99</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

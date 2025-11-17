@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Shilajeet - Peak Purity | Himalayan Essence</title>
+    
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+    
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            DEFAULT: "#D4AF37", // Primary Gold
+                            light: "#F0E68C",
+                            dark: "#B8860B",
+                        },
+                        neutral: {
+                            950: "#0A0A0A", // Super Deep Black
+                            900: "#1A1A1A",
+                            800: "#2A2A2A",
+                            700: "#3C3C3C",
+                            500: "#A9A9A9", // Bronze/Copper tint for softer body text
+                            100: "#f5f5f5",
+                        },
+                    },
+                    fontFamily: {
+                        sans: ["Poppins", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                    },
+                    backgroundImage: {
+                        // Overall rich texture
+                        'rich-texture': "url('https://www.transparenttextures.com/patterns/dark-concrete.png')",
+                        // Hero Image: Starry Night over Himalayas
+                        'hero-image': "url('https://images.unsplash.com/photo-1517457210871-331da2905141?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+                        // Parallax Image for 'The Source' (needs a different, slightly brighter mountain image)
+                        'source-parallax': "url('https://images.unsplash.com/photo-1547467554-47c7c34f3780?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"
+                    },
+                    boxShadow: {
+                        'gold-glow': '0 0 10px 0 rgba(212, 175, 55, 0.4), 0 0 20px 0 rgba(212, 175, 55, 0.2)',
+                    }
+                },
+            },
+        };
+    </script>
+    <style type="text/tailwindcss">
+        /* Base Styles */
+        body {
+            @apply bg-neutral-950 font-sans antialiased;
+            background-image: url('https://www.transparenttextures.com/patterns/dark-concrete.png');
+        }
+        h1, h2, h3, h4, h5, h6 {
+            @apply tracking-wide;
+        }
+        /* Gradient Text */
+        .gold-gradient-text {
+            @apply bg-gradient-to-r from-gold-light via-gold to-gold-dark bg-clip-text text-transparent;
+        }
+        /* Parallax Style for 'The Source' section */
+        .parallax-section {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js" type="module"></script>
+</head>
+<body class="dark">
+<div class="w-full max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <header class="py-4 border-b border-gold/10 sticky top-0 z-50 bg-neutral-950/95 backdrop-blur-sm">
+        <nav class="flex justify-between items-center">
+            <a class="flex items-center space-x-2 group" href="#">
+                <svg class="w-7 h-7 text-gold group-hover:text-gold-light transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+                <span class="font-bold text-lg tracking-wider text-neutral-100">SHILAJEET</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-neutral-100">
+                <a class="hover:text-gold transition-colors relative nav-link" href="storyy.HTML">The Source</a>
+                <a class="hover:text-gold transition-colors relative nav-link" href="shop.html">The Product</a>
+                <a class="hover:text-gold transition-colors relative nav-link" href="conatct.html">Contact</a>
+            </div>
+            <a class="bg-gold text-neutral-950 px-5 py-2 rounded-full text-sm font-semibold tracking-wide uppercase hover:bg-gold-light hover:shadow-gold-glow transition-all duration-300" href="#">
+                Shop Now
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="text-center py-24 md:py-36 relative overflow-hidden bg-center bg-cover bg-hero-image">
+            <div class="absolute inset-0 z-0 bg-neutral-950 opacity-60"></div> 
+            
+            <div class="relative z-10">
+                <h1 class="text-4xl md:text-7xl font-extrabold gold-gradient-text leading-snug uppercase tracking-widest">HARVESTED FROM THE HEAVENS</h1>
+                <p class="mt-4 max-w-lg mx-auto text-neutral-500 font-medium">
+                    Discover the peak of purity with authentic Shilajeet, sourced from the heart of the Himalayas.
+                </p>
+                <a class="mt-8 inline-block bg-gold text-neutral-950 px-10 py-3.5 rounded-full text-base font-bold tracking-wider uppercase hover:bg-gold-light hover:shadow-gold-glow transform hover:scale-105 transition-all duration-300" href="#">
+                    Shop Now
+                </a>
+            </div>
+        </section>
+
+        <section class="py-10 md:py-16">
+            <div class="max-w-3xl mx-auto text-center">
+                <p class="text-xl text-neutral-500 leading-relaxed font-medium">
+                    A substance born from the heart of the Himalayas, Shilajeet is a testament to nature's power. For centuries, it has been revered as a source of **vitality and strength**, a rare gift from the earth itself.
+                </p>
+            </div>
+        </section>
+
+        <section class="py-24 md:py-32 bg-source-parallax parallax-section relative">
+            <div class="absolute inset-0 bg-neutral-950 opacity-80"></div> <div class="relative z-10 w-full max-w-5xl mx-auto px-4">
+                <div class="text-center">
+                    <h2 class="text-4xl md:text-6xl font-extrabold gold-gradient-text uppercase tracking-wider">FROM THE SOURCE</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-neutral-400 font-medium">
+                        Our Shilajeet is harvested with respect from treacherous altitudes, ensuring **unparalleled authenticity** and potency.
+                    </p>
+                </div>
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div class="p-6 border border-gold/20 rounded-xl group shadow-2xl bg-neutral-900/80 backdrop-blur-sm transition-shadow hover:shadow-gold-glow/40">
+                        <div class="h-64 overflow-hidden rounded-lg border-b border-gold/10">
+                            <img alt="Snowy Himalayan mountain peak" class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmNYXP9_HRLX_dDZuu-hs36W4lu0GEDK9tVvWxnH7A2IEer-TDOGVdHFTEjaGjnulKA6dEoJOMAT2rxZ0Qf3T-c6vNoX82BjCeJbq-aXydbY29El2rJJVT3UVCp7t_ivNuZxuYmDr_Euucotqa5nRLflhTAZt7XKGCTZowZaka-0uo6mQx3rLntmibzjFJBb-zx_f0NFro99AU6HBZdtT9-wZhkUhe4AUFjF6OK8fD9x71wShAlxVZKMfMQgPEV48BxXmq8XZ90RI"/>
+                        </div>
+                        <div class="p-3">
+                            <h3 class="mt-4 text-2xl font-semibold text-gold tracking-wider">Authentic Origin</h3>
+                            <p class="mt-2 text-neutral-500 font-medium">Sustainably sourced from the highest peaks of the Himalayas, where purity is guaranteed.</p>
+                        </div>
+                    </div>
+                    <div class="p-6 border border-gold/20 rounded-xl group shadow-2xl bg-neutral-900/80 backdrop-blur-sm transition-shadow hover:shadow-gold-glow/40">
+                        <div class="h-64 overflow-hidden rounded-lg border-b border-gold/10">
+                            <img alt="Close-up of raw Shilajeet resin" class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoMzT33vQEDcRs9nMvZ-3C7Aq5kO4XfoznBq6HF8ZKNgPMBRjlWrOuoFBor_fveFHQSRQ6B0L5IBwOeh-7dDERAST-q4ov2rojKGlyse4M1GP8x0BZmHlS4AGgYrn3N_lyQjBAs5wQ1fJfCDAVKXK9nDxv0DbpT2PI81UN7Z5mFqeSkIxk1yw-PTdnpTgLGoQPgQTgMny5XDIDz1tdm9lPYIKoM5Sp8WGlTLQAhsi2cDqoaddnBCib2JFRYhoBUcVzuvU-Htjxdao"/>
+                        </div>
+                        <div class="p-3">
+                            <h3 class="mt-4 text-2xl font-semibold text-gold tracking-wider">Meticulous Purity</h3>
+                            <p class="mt-2 text-neutral-500 font-medium">Rigorously tested and triple-purified to preserve its natural benefits and mineral integrity.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="py-16 md:py-20">
+            <div class="text-center">
+                <h2 class="text-3xl md:text-5xl font-bold gold-gradient-text uppercase">Explore the Essence</h2>
+                <p class="mt-3 max-w-2xl mx-auto text-neutral-500 font-medium">
+                    Interact with our products in 3D. See the rich texture and potent purity up close.
+                </p>
+            </div>
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                <div class="relative w-full h-[400px] md:h-[450px] border border-gold/20 rounded-lg bg-neutral-900/50 flex items-center justify-center p-4">
+                    <model-viewer alt="A 3D model of our Shilajeet Resin Jar" ar="" ar-modes="webxr scene-viewer quick-look" auto-rotate="" camera-controls="" camera-orbit="-20deg 75deg 2m" class="w-full h-full model-viewer-container" enable-pan="" field-of-view="30deg" rotation-per-second="15deg" shadow-intensity="1" src="https://modelviewer.dev/shared-assets/models/Astronaut.glb">
+                        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs text-neutral-500 font-light flex items-center gap-2 bg-neutral-950/80 px-3 py-1 rounded-full">
+                            <span class="material-symbols-outlined !text-base !fill-0">3d_rotation</span>
+                            Rotate and zoom to inspect
+                        </div>
+                    </model-viewer>
+                </div>
+                <div class="text-left">
+                    <h3 class="text-2xl font-bold text-gold uppercase">Pure Himalayan Shilajeet Resin</h3>
+                    <p class="mt-3 text-neutral-500 leading-relaxed font-medium">
+                        Our signature product, presented in its most potent and pure form. This resin is a powerhouse of over **84 minerals**, offering unparalleled benefits for energy, vitality, and overall wellness.
+                    </p>
+                    <ul class="mt-5 space-y-2 text-neutral-400 font-medium">
+                        <li class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-gold !text-lg">local_florist</span>
+                            <span>Sourced from 18,000+ feet altitude</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-gold !text-lg">science</span>
+                            <span>Third-party lab tested for purity & safety</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-gold !text-lg">eco</span>
+                            <span>Sustainably and ethically harvested</span>
+                        </li>
+                    </ul>
+                    <div class="mt-6 flex items-baseline gap-3">
+                        <span class="text-3xl font-bold text-neutral-100 tracking-wide">$79.99</span>
+                        <span class="text-base text-neutral-500 line-through">$99.99</span>
+                    </div>
+                    <a class="mt-5 inline-block w-full text-center bg-gold text-neutral-950 px-8 py-3.5 rounded-full text-base font-bold tracking-wider uppercase hover:bg-gold-light hover:shadow-gold-glow transform hover:scale-105 transition-all duration-300" href="#">
+                        Add to Cart
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 md:py-20 bg-neutral-900">
+            <div class="max-w-3xl mx-auto text-center relative">
+                <span class="absolute -top-6 left-0 text-8xl font-bold text-gold opacity-10">“</span>
+                <blockquote class="text-xl md:text-2xl italic text-neutral-100 font-medium">
+                    "An unparalleled source of vitality. The purity is palpable from the very first dose. Truly the **gold standard of Shilajeet**."
+                </blockquote>
+                <cite class="mt-6 block text-sm text-neutral-400 not-italic tracking-wider">
+                    — Dr. Alistair Finch, Naturopathic Doctor
+                </cite>
+                <span class="absolute -bottom-6 right-0 text-8xl font-bold text-gold opacity-10">”</span>
+            </div>
+        </section>
+
+        <section class="py-16 md:py-20">
+            <div class="text-center">
+                <h2 class="text-3xl md:text-5xl font-bold gold-gradient-text uppercase">From Our Community</h2>
+                <p class="mt-3 max-w-2xl mx-auto text-neutral-500 font-medium">
+                    Real stories from real customers. Discover how Shilajeet has transformed lives.
+                </p>
+            </div>
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-neutral-900 border border-gold/20 p-6 rounded-lg flex flex-col shadow-xl">
+                    <div class="flex items-center mb-3 text-gold text-lg">
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                    </div>
+                    <p class="text-neutral-500 font-medium flex-grow text-sm">"I've tried other brands, but nothing compares. The **energy boost** is clean and sustained, without any jitters."</p>
+                    <div class="mt-5 pt-4 border-t border-gold/10">
+                        <p class="font-semibold text-neutral-100 tracking-wide">James P.</p>
+                        <p class="text-xs text-neutral-400">Verified Buyer</p>
+                    </div>
+                </div>
+                <div class="bg-neutral-900 border border-gold/20 p-6 rounded-lg flex flex-col shadow-xl">
+                    <div class="flex items-center mb-3 text-gold text-lg">
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                    </div>
+                    <p class="text-neutral-500 font-medium flex-grow text-sm">"Absolutely life-changing. My **focus has improved dramatically**, and I feel a profound sense of well-being. The quality is exceptional."</p>
+                    <div class="mt-5 pt-4 border-t border-gold/10">
+                        <p class="font-semibold text-neutral-100 tracking-wide">Maria S.</p>
+                        <p class="text-xs text-neutral-400">Verified Buyer</p>
+                    </div>
+                </div>
+                <div class="bg-neutral-900 border border-gold/20 p-6 rounded-lg flex flex-col shadow-xl">
+                    <div class="flex items-center mb-3 text-gold text-lg">
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                        <span class="material-symbols-outlined">star</span>
+                    </div>
+                    <p class="text-neutral-500 font-medium flex-grow text-sm">"As an athlete, recovery is everything. My **recovery times have shortened** and my endurance has increased. A true game-changer."</p>
+                    <div class="mt-5 pt-4 border-t border-gold/10">
+                        <p class="font-semibold text-neutral-100 tracking-wide">Chen W.</p>
+                        <p class="text-xs text-neutral-400">Verified Buyer</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="pt-12 pb-6 border-t border-gold/10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="md:col-span-2">
+                    <a class="flex items-center space-x-2" href="#">
+                        <svg class="w-7 h-7 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+                        <span class="font-bold text-lg tracking-wider text-neutral-100">SHILAJEET</span>
+                    </a>
+                    <p class="mt-3 text-neutral-400 max-w-xs font-medium text-sm">
+                        The peak of purity, harvested from the heavens. Experience the authentic power of the Himalayas.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-neutral-100 uppercase tracking-widest text-sm">Explore</h4>
+                    <ul class="mt-3 space-y-2 text-sm">
+                        <li><a class="text-neutral-500 hover:text-gold transition-colors" href="#">The Source</a></li>
+                        <li><a class="text-neutral-500 hover:text-gold transition-colors" href="#">The Product</a></li>
+                        <li><a class="text-neutral-500 hover:text-gold transition-colors" href="#">Journal</a></li>
+                        <li><a class="text-neutral-500 hover:text-gold transition-colors" href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-neutral-100 uppercase tracking-widest text-sm">Join The Journey</h4>
+                    <p class="mt-3 text-sm text-neutral-500 font-medium">Receive exclusive offers and stories from the source.</p>
+                    <form class="mt-3 flex">
+                        <input class="flex-grow bg-neutral-800 border-gold/20 rounded-l-full focus:ring-gold focus:border-gold text-sm text-neutral-100 placeholder-neutral-500 px-4 py-2" placeholder="Your email" type="email"/>
+                        <button class="bg-gold text-neutral-950 px-4 py-2 rounded-r-full text-sm font-bold tracking-wider uppercase hover:bg-gold-light transition-colors" type="submit">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+            <div class="mt-10 pt-5 border-t border-gold/10 flex justify-between items-center text-xs text-neutral-500">
+                <p>© 2024 Shilajeet Co. All Rights Reserved.</p>
+                <div class="flex space-x-4">
+                    <a class="hover:text-gold transition-colors" href="#">Terms of Service</a>
+                    <a class="hover:text-gold transition-colors" href="#">Privacy Policy</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
